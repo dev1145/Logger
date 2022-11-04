@@ -1,4 +1,4 @@
-# logger_d
+# loggerdev
 o This is a simple logger getter.
  - use get_logger(...) 
  - Installation
@@ -7,12 +7,12 @@ o This is a simple logger getter.
 
 ## Installation
 ```sh
-# pip install git+https://github.com/dev1145/logger_d.git
+# pip install git+https://github.com/dev1145/loggerdev.git
 ```
 
 ## Using example
 ```python
-from logger_d import get_logger
+from loggerdev import get_logger
 get_logger(logger_name="myJob.subjob", log_filename=None)
 ```
 
