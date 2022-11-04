@@ -1,1 +1,1 @@
-from logger_d.logger import get_logger
+from loggerdev.logger import get_logger
