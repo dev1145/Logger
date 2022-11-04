@@ -12,7 +12,7 @@ o This is a simple logger getter.
 
 ## Using example
 ```python
-import logging
+import logging, loggerdev
 from loggerdev import get_logger
 logger=get_logger(logger_name="myJob.subjob", log_filename=None)
 logger.info("default logging level is INFO = %s", logging.INFO)
