@@ -16,6 +16,6 @@ setup(
  long_description=long_description,
  long_description_content_type="text/markdown",
  url="https://github.com/dev1145/logger_d",
- install_requires=[ psutil ],
+ install_requires=[ 'psutil' ],
  include_package_data=True,
 )
