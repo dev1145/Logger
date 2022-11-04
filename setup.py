@@ -5,17 +5,17 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
- name='timeloop',
- version='1.1',
- packages=['hello-world'],
+ name='logger_d',
+ version='1.0',
+ packages=['logger_d'],
  license = 'MIT',
- description = 'hello world.',
+ description = 'get_logger',
  author = 'dev1145',
  author_email = '@gmail.com',
- keywords = ['hello-world','hello world'],
+ keywords = ['logging','get_logger'],
  long_description=long_description,
  long_description_content_type="text/markdown",
- url="https://github.com/dev1145/hello-world",
- install_requires=[ ],
+ url="https://github.com/dev1145/logger_d",
+ install_requires=[ psutil ],
  include_package_data=True,
 )
