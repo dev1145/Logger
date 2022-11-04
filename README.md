@@ -17,7 +17,7 @@ from loggerdev import get_logger
 logger=get_logger(logger_name="myJob.subjob", log_filename=None)
 logger.info("default logging level is INFO = %s", logging.INFO)
 logger.setLevel(logging.INFO-1)
-logger.log(logging.INFO-1 , "more info=%s", logging.INFO-1)
+logger.log(logging.INFO-1 , "more info=%s \n %s", dir(loggerdev), loggerdev.__spec__)
 ```
 
 ### by dev1145
