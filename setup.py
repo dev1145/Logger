@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
  name='loggerdev',
- version='1.0',
+ version='1.0.1',
  packages=['loggerdev'],
  license = 'MIT',
  description = 'get_logger',
