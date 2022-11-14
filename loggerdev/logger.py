@@ -4,7 +4,7 @@ import logging.handlers
   
 def get_logger(
   logger_name=__name__,
-  log_filename=None, auto_code_debug=True,
+  log_filename=None, log_dir='logs', auto_code_debug=True,
   logging_stream=sys.stderr, log_level=logging.INFO,
   reset=False, propagate=False):
   ''' logger is returned. log_filename or logging_stream is used when auto_code_debug=True, but both are used when auto_code_debug="Both" 
@@ -34,10 +34,10 @@ def get_logger(
       me = psutil.Process() #python.exe
       #log_filename='./output/log_'
       #log_file = os.path.realpath(os.path.abspath(os.path.join(me.as_dict()['cwd'], log_filename+"_log.txt" ))) #log_filename+ str(me.pid )
-      log_file = os.path.realpath(os.path.abspath(os.path.join(me.as_dict()['cwd'], 'logs', log_filename+"_log.txt" )))
+      log_file = os.path.realpath(os.path.abspath(os.path.join(me.as_dict()['cwd'], log_dir, log_filename+"_log.txt" )))
       #-- Temporary Scripts, should be modified...
-      if not os.path.exists('logs'):
-          os.makedirs('logs')
+      if not os.path.exists(log_dir):
+          os.makedirs(log_dir)
       #--
       while(me != None):
           if( str(me.name()).startswith('code') or str(me.name()).startswith('Code') ): break
@@ -55,7 +55,10 @@ def get_logger(
               ch2.setLevel(logging.NOTSET)
               ch2.setFormatter(formatter)
   elif (log_filename != None):
-      ch=logging.handlers.RotatingFileHandler(filename=logger_name+"_log.txt" if type(log_filename) != str else log_filename, maxBytes=200000, backupCount=3)
+      if not os.path.exists(log_dir):
+          os.makedirs(log_dir)
+      log_file = os.path.realpath(os.path.abspath(os.path.join(me.as_dict()['cwd'], log_dir, log_filename+"_log.txt" if type(log_filename) == str else logger_name+"_log.txt")))
+      ch=logging.handlers.RotatingFileHandler(filename=log_file, encoding='utf-8', maxBytes=40*1000*1000, backupCount=15)
   else :
       ch = logging.StreamHandler(stream=logging_stream)
 
